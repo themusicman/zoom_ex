@@ -1,6 +1,6 @@
-defmodule Zoom.Auth.Token do
+defmodule Zoom.Auth.VideoSdk.Token do
   use Joken.Config
-
+  require Logger
   alias Zoom.Auth
 
   def generate(%Auth{
@@ -33,7 +33,7 @@ defmodule Zoom.Auth.Token do
         token
 
       error ->
-        IO.inspect(error: error)
+        Logger.debug("Zoom.Auth.VideoSdk.Token.generate_and_sign error=#{inspect(error)}")
         {:error}
     end
   end
