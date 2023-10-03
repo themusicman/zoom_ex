@@ -28,7 +28,7 @@ defmodule Zoom.Auth.VideoSdk.Token do
         claims
       end
 
-    case generate_and_sign(claims) do
+    case generate_and_sign(claims, :zoom_ex) do
       {:ok, token, _claims} ->
         token
 
