@@ -27,6 +27,7 @@ defmodule Zoom.Auth.VideoSdk.Token do
       else
         claims
       end
+      |> Flamel.Map.stringify_keys()
 
     case generate_and_sign(claims, :zoom_ex) do
       {:ok, token, _claims} ->
